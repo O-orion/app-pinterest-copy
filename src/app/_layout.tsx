@@ -19,7 +19,7 @@ export default function  Layout () {
         Roboto_700Bold
     })
 
-    if (!fontsLoaded) {
+    if (fontsLoaded) {
         SplashScreen.hideAsync()
     }
 
@@ -27,7 +27,10 @@ export default function  Layout () {
     return (
         <GestureHandlerRootView  style={ {flex: 1}}>
             <StatusBar barStyle="light-content"  ></StatusBar>
-            <Slot/> 
+            {
+                fontsLoaded &&
+                    <Slot/> 
+            }
         </GestureHandlerRootView>
     )
 }
